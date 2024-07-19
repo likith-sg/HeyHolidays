@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('your-background-image.avif') center/cover no-repeat;
+            color: #fff;
+            transition: background 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #fff;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 0.5rem;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: #fff;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        #payment-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .confirmation-message {
+            display: none;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 1rem;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Payment</h1>
+    </header>
+
+    <div class="container">
+        <div class="payment-form" id="payment-form">
+            <h2>Payment Details</h2>
+            <form>
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="123" required>
+                <button type="button" onclick="confirmBooking()">Confirm Booking</button>
+            </form>
+            <div class="confirmation-message" id="confirmation-message">
+                <p>Booking Confirmed!</p>
+                <p>Bon voyage!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmBooking() {
+            var cardNumber = document.getElementById("card-number").value;
+            var expiryDate = document.getElementById("expiry-date").value;
+            var cvv = document.getElementById("cvv").value;
+    
+            if (!cardNumber || !expiryDate || !cvv) {
+                alert("Please fill in all payment details.");
+                return;
+            }
+    
+            var confirmationMessage = document.getElementById("confirmation-message");
+    
+            confirmationMessage.style.display = "block";
+    
+            setTimeout(function () {
+                confirmationMessage.style.display = "none";
+    
+                alert("Booking Confirmed! Bon voyage!");
+    
+                document.getElementById("card-number").value = "";
+                document.getElementById("expiry-date").value = "";
+                document.getElementById("cvv").value = "";
+                
+                window.location.href = 'index.html';
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

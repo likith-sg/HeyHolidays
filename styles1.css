@@ -1,0 +1,272 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+.contact-button a {
+    padding: 10px 20px;
+    background-color: #d70d0d;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button a:hover {
+    background-color: #ffbf00;
+}
+
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.about-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    border: 2px solid #ffc800;
+}
+
+.about-text h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.about-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#reviews {
+    text-align: center;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.review {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    border: 2px solid #800000;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    text-align: left;
+}
+
+.review-content h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-text {
+    font-style: italic;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #888;
+}
+
+#contact {
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-info,
+.social-media {
+    flex: 0 0 calc(50% - 20px);
+    margin-bottom: 20px;
+}
+
+.contact-info h2,
+.social-media h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-media li {
+    margin-bottom: 5px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #ffcc00;
+}
+
+.address {
+    flex: 0 0 calc(100% - 20px);
+    margin-bottom: 20px;
+}
+
+.address h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.address p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-height: 60px;
+}
+
+.powered-by,
+.copyright {
+    flex: 1;
+}
+
+.powered-by p,
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#home {
+    position: relative;
+    height: 450px; 
+}
+
+.home-slideshow {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    height: 80%;
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+    position: absolute;
+    width: 100%;
+    transition: opacity 2s ease-in-out;
+}
+
+.mySlides img {
+    width: 110%;
+    height: 10%; 
+}
+section {
+    padding: 50px 0;
+    text-align: center;
+    margin-top: 60px; 
+}

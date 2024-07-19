@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dream Stays</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('abstractbackground.png') center/cover no-repeat;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffd000;
+            margin-bottom: 20px;
+            font-size: 3em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #hotelList {
+            display: flex;
+            overflow-x: auto;
+            width: 80%;
+            margin-top: 20px;
+            animation: slide 16s linear infinite;
+        }
+
+        .hotel-container {
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border: 10px solid #fff;
+            margin-right: 10px;
+            width: 250px;
+            height: 400px;
+            background: url('containerbackground.jpg') center/cover no-repeat;
+            background-size: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .hotel-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hotel-container:hover {
+            transform: scale(1.05);
+        }
+
+        .hotel-info {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hotel-info h2,
+        .hotel-info p {
+            margin: 0;
+            color: #fff;
+        }
+
+        .hotel-image {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 10px;
+        }
+
+        .luxury-hotel .hotel-image {
+            max-width: 100%;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #hotelList {
+                width: 100%;
+            }
+        }
+
+        .hotel-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            outline: none;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Explore Your Dream Stays</h1>
+
+    <div id="hotelList">
+        <button class="hotel-link" onclick="navigateToHotel(0)">
+            <div class="hotel-container luxury-hotel">
+                <img class="hotel-image" src="luxury_hotel.jpg" alt="Luxury Hotel">
+                <div class="hotel-info">
+                    <h2>Luxury Hotel</h2>
+                    <p>Price: $300</p>
+                </div>
+            </div>
+        </button>
+
+        <button class="hotel-link" onclick="navigateToHotel(1)">
+            <div class="hotel-container">
+                <img class="hotel-image" src="cozy_inn.jpeg" alt="Cozy Inn">
+                <div class="hotel-info">
+                    <h2>Cozy Inn</h2>
+                    <p>Price: $150</p>
+                </div>
+            </div>
+        </button>
+
+        <button class="hotel-link" onclick="navigateToHotel(2)">
+            <div class="hotel-container">
+                <img class="hotel-image" src="seaside_resort.jpg" alt="Seaside Resort">
+                <div class="hotel-info">
+                    <h2>Seaside Resort</h2>
+                    <p>Price: $250</p>
+                </div>
+            </div>
+        </button>
+
+        <button class="hotel-link" onclick="navigateToHotel(3)">
+            <div class="hotel-container">
+                <img class="hotel-image" src="mountain_retreat.jpg" alt="Mountain Retreat">
+                <div class="hotel-info">
+                    <h2>Mountain Retreat</h2>
+                    <p>Price: $200</p>
+                </div>
+            </div>
+        </button>
+    </div>
+
+    <script>
+        function navigateToHotel(index) {
+            var hotelPages = [
+                'payments.html?hotel=0',
+                'payments.html?hotel=1',
+                'payments.html?hotel=2',
+                'payments.html?hotel=3'
+            ];
+
+            window.location.href = hotelPages[index];
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var hotels = [
+                { name: 'Luxury Hotel', price: 300, image: 'luxury_hotel.jpg', isLuxury: true },
+                { name: 'Cozy Inn', price: 150, image: 'cozy_inn.jpeg' },
+                { name: 'Seaside Resort', price: 250, image: 'seaside_resort.jpg' },
+                { name: 'Mountain Retreat', price: 200, image: 'mountain_retreat.jpg' }
+            ];
+
+            var hotelListHTML = '';
+            for (var i = 0; i < hotels.length; i++) {
+                hotelListHTML += '<button class="hotel-link" onclick="navigateToHotel(' + i + ')">';
+                hotelListHTML += '<div class="hotel-container' + (hotels[i].isLuxury ? ' luxury-hotel' : '') + '">';
+                hotelListHTML += '<img class="hotel-image" src="' + hotels[i].image + '" alt="' + hotels[i].name + '">';
+                hotelListHTML += '<div class="hotel-info">';
+                hotelListHTML += '<h2>' + hotels[i].name + '</h2>';
+                hotelListHTML += '<p>Price: $' + hotels[i].price + '</p>';
+                hotelListHTML += '</div>';
+                hotelListHTML += '</div>';
+                hotelListHTML += '</button>';
+            }
+
+            document.getElementById('hotelList').innerHTML = hotelListHTML;
+        });
+    </script>
+
+</body>
+
+</html>

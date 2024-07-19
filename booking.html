@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Booking Details</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') center/cover no-repeat;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            color: #ffe600;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        input,
+        select,
+        button {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input[type="date"] {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #4caf50; 
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #ffcc00; 
+            background-color: #f9f9f9; 
+        }
+
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #4caf50; 
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #ffcc00; 
+            background-color: #f9f9f9; 
+        }
+
+        button {
+            background-color: #ffcc00;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="Hotellist.html" method="post" id="bookingForm">
+        <h1>Kindly Provide Your Details</h1>
+
+        <label for="departureDate">Departure Date:</label>
+        <input type="date" id="departureDate" name="departureDate" required>
+
+        <label for="arrivalDate">Arrival Date:</label>
+        <input type="date" id="arrivalDate" name="arrivalDate" required>
+
+        <label for="roomOptions">Room Options:</label>
+        <select id="roomOptions" name="roomOptions" required>
+            <option value="single">Single Room</option>
+            <option value="double">Double Room</option>
+            <option value="suite">Suite</option>
+        </select>
+
+        <label for="acOption">AC Option:</label>
+        <select id="acOption" name="acOption" required>
+            <option value="ac">AC</option>
+            <option value="non-ac">Non-AC</option>
+        </select>
+
+        <label for="entertainmentOption">Entertainment:</label>
+        <select id="entertainmentOption" name="entertainmentOption" required>
+            <option value="with-entertainment">With Entertainment</option>
+            <option value="without-entertainment">Without Entertainment</option>
+        </select>
+
+        <label for="mealPlan">Meal Plan:</label>
+        <select id="mealPlan" name="mealPlan" required>
+            <option value="none">No Meal Plan</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="half-board">Half Board</option>
+            <option value="full-board">Full Board</option>
+            <option value="flexible">Flexible</option>
+        </select>
+
+        <label for="price">Price:</label>
+        <select id="price" name="price" required>
+            <option value="(10000 - 20000)rookie">(10000 - 20000) Rookie</option>
+            <option value="(20000 - 30000)pleasant">(20000 - 30000) Pleasant</option>
+            <option value="(30000 - 40000)comfortable">(30000 - 40000) Comfortable</option>
+            <option value="(40000 - 50000)grande">(40000 - 50000) Grande</option>
+            <option value="(50000+)holiday_le_grande">(50000+) Holiday Le Grande</option>
+        </select>
+
+        <button type="button" onclick="submitBooking()">Submit Booking</button>
+    </form>
+
+    <script>
+        function submitBooking() {
+            var departureDate = document.getElementById("departureDate").value;
+            var arrivalDate = document.getElementById("arrivalDate").value;
+            var roomOptions = document.getElementById("roomOptions").value;
+            var acOption = document.getElementById("acOption").value;
+            var entertainmentOption = document.getElementById("entertainmentOption").value;
+            var mealPlan = document.getElementById("mealPlan").value;
+            var price = document.getElementById("price").value;
+
+            if (!departureDate || !arrivalDate || !roomOptions || !acOption || !entertainmentOption || !mealPlan || !price) {
+                alert("Please fill in all details.");
+                return;
+            }
+
+            window.location.href = 'Hotellist.html';
+        }
+    </script>
+
+</body>
+
+</html>
